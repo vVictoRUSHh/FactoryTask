@@ -18,13 +18,5 @@ namespace MainMechanic.WareHouse
         {
             _consumableResources = new List<IConsumableResource>();
         }
-
-        public void GiveResourcesToPlayer(float speedOfTaking,Inventory inventory,int iterations)
-        {
-            inventory._resourcesInInventory.Add(_consumableResources[iterations]);
-            _consumableResources.Remove(_consumableResources[iterations]);
-        }
-
-        
     }
 }

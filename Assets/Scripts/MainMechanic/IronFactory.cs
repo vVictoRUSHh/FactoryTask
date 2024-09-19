@@ -18,7 +18,7 @@ public class IronFactory : Factory
         var resourceCountInWareHouse = _manufacturedWareHouse._consumableResources.Count;
         var resourcesCopacity = _manufacturedWareHouse._storageСapacity;
         //print(resourceCountInWareHouse);
-        isStoped  = resourceCountInWareHouse < resourcesCopacity ? true : false;
+        isStoped  = resourceCountInWareHouse < resourcesCopacity;
         if (isStoped && isCreatingFinish)
         {
             StartCoroutine(MakeResourceCoroutine(timeToMake));
