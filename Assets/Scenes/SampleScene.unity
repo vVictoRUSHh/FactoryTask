@@ -123,6 +123,58 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &339454349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 339454351}
+  - component: {fileID: 339454350}
+  m_Layer: 0
+  m_Name: ConsumerWareHouseController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &339454350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339454349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d529c40ef89469b45ae010cf6d37d582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _consumerWareHouse: {fileID: 2133250681}
+  _bronzeFactory: {fileID: 1783397377}
+  _copperFactory: {fileID: 1895515769}
+  _ironPrefab: {fileID: 5040919596474279656, guid: c098d2d6d745c194e8aeba44f459e5fd,
+    type: 3}
+  _copperPrefab: {fileID: 825193163773749857, guid: 739b37b6d6428b444a6b03a2356151ce,
+    type: 3}
+  _speed: 2
+--- !u!4 &339454351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339454349}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.680001, y: 1.0599995, z: -11.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,10 +616,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _manufacturedWareHouse: {fileID: 1256026638}
-  timeToMake: 1
+  timeToMake: 5
   _ironPrefab: {fileID: 5040919596474279656, guid: c098d2d6d745c194e8aeba44f459e5fd,
     type: 3}
-  _speed: 3
+  _speed: 0.5
 --- !u!1 &1493559986 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7165085277000651266, guid: 0342b76add0151e4d824889ec1dc3f98,
@@ -608,6 +660,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerBack: {fileID: 1029003848}
   _iron: {fileID: 5040919596474279656, guid: 1b615b28c25377d46a8ffed7ee91ca20, type: 3}
+  _copper: {fileID: 5040919596474279656, guid: 408ce8dd4916d944fa9aea5c0e0c4d91, type: 3}
+--- !u!1 &1783397375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 23163971332447173, guid: 6756472692c7e6c4fa6077e298f7c614,
+    type: 3}
+  m_PrefabInstance: {fileID: 3767316434007901983}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1783397377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783397375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c470473dbb475c99adcb7432924f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _manufacturedWareHouse: {fileID: 1256026638}
+  timeToMake: 1
+  _bronzePrefab: {fileID: 2671171871168849980, guid: b642be561a97baf468ecf416f06abe02,
+    type: 3}
+  _ironList: []
+  _copperList: []
+  _speed: 1
+--- !u!1 &1895515767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6973519402542501366, guid: bc8e9dccd2a7b964ea7b55b354bd7ecb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1177080487434798540}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1895515769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895515767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab9606add36447689c02d1ba71e49f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _manufacturedWareHouse: {fileID: 1256026638}
+  timeToMake: 1
+  _copperPrefab: {fileID: 825193163773749857, guid: 739b37b6d6428b444a6b03a2356151ce,
+    type: 3}
+  _ironList: []
+  _speed: 0.5
 --- !u!1 &2095353565
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,6 +828,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2133250681 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 925933335898151217, guid: e20ad870e4d6d3a44bde001e88a4c88f,
+    type: 3}
+  m_PrefabInstance: {fileID: 925933336329259083}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae1b856b58943d5bac8f5f7541288de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &925933336329259083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -912,6 +1026,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CopperFactory
       objectReference: {fileID: 0}
+    - target: {fileID: 6973519402542501366, guid: bc8e9dccd2a7b964ea7b55b354bd7ecb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc8e9dccd2a7b964ea7b55b354bd7ecb, type: 3}
 --- !u!1001 &3767316434007901983
@@ -1050,6 +1169,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WareHouseOfManufacturedResources
       objectReference: {fileID: 0}
+    - target: {fileID: 6608887288532460227, guid: 47fc6b631faef524fa53c24ac22f5627,
+        type: 3}
+      propertyPath: "_storage\u0421apacity"
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47fc6b631faef524fa53c24ac22f5627, type: 3}
 --- !u!1001 &7165085276313008304
@@ -1072,7 +1196,7 @@ PrefabInstance:
     - target: {fileID: 7165085277000651270, guid: 0342b76add0151e4d824889ec1dc3f98,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.23
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 7165085277000651270, guid: 0342b76add0151e4d824889ec1dc3f98,
         type: 3}
@@ -1082,7 +1206,7 @@ PrefabInstance:
     - target: {fileID: 7165085277000651270, guid: 0342b76add0151e4d824889ec1dc3f98,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.54
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 7165085277000651270, guid: 0342b76add0151e4d824889ec1dc3f98,
         type: 3}

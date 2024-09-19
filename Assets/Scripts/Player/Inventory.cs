@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using MainMechanic.FactoryResources;
 using MainMechanic.WareHouse;
+using Player;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -10,13 +11,25 @@ public class Inventory : MonoBehaviour
    public List<IConsumableResource>_resourcesInInventory;
    public int _inventoryCapacity;
    public InventoryDisplay _inventoryDisplay;
+   public CounterResourceDistance _counterOfDistance;
    private bool isTakingResourcesFinished = true;
-   float distanceBetweenBlocks = 0;
+   float distanceBetweenBlocks;
 
 
    private void Awake()
    {
       _resourcesInInventory = new List<IConsumableResource>();
+      _counterOfDistance = new CounterResourceDistance();
+   }
+
+   
+   [ContextMenu("See inside!")]
+   private void SeeInside()
+   {
+      foreach (var item in _resourcesInInventory)
+      {
+         Debug.LogError($"Item{item.GetType()}");
+      }
    }
 
    private IEnumerator TakingResourcesFromWareHouse(ManufacturedWareHouse manufacturedWareHouse, int index)
@@ -36,11 +49,12 @@ public class Inventory : MonoBehaviour
       {
             bool canTakeResources = _resourcesInInventory.Count < _inventoryCapacity;
             bool empty = manufacturedWareHouse._consumableResources.Count == 0;
+            int lastItem = manufacturedWareHouse._consumableResources.Count - 1;
             if (!empty && canTakeResources && isTakingResourcesFinished)
             {
-               StartCoroutine(TakingResourcesFromWareHouse(manufacturedWareHouse, 0));
-               _inventoryDisplay.DisplayInventory(this,0,distanceBetweenBlocks);
-               distanceBetweenBlocks +=0.50f;
+               StartCoroutine(TakingResourcesFromWareHouse(manufacturedWareHouse, lastItem));
+               _inventoryDisplay.DisplayInventory(this,_resourcesInInventory.Count - 1,_counterOfDistance.CountDistance(this));
+               
                print($"I take 1 iron from storage! {_resourcesInInventory.Count} ");
             }
             else if (!canTakeResources) print($"Inventory is full!");

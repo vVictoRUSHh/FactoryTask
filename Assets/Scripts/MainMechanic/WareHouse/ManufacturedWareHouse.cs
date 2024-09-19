@@ -13,10 +13,10 @@ namespace MainMechanic.WareHouse
         public List<IConsumableResource> _consumableResources;
         public List<INonConsumableResource> _nonConsumableResources;
         public Action onManufacturedWareHouseFilled;
-
         private void Awake()
         {
             _consumableResources = new List<IConsumableResource>();
+            _nonConsumableResources = new List<INonConsumableResource>();
         }
     }
 }

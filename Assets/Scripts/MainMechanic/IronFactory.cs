@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using MainMechanic.FactoryResources;
 using MainMechanic.WareHouse;
 using UnityEngine;
 
@@ -11,15 +12,19 @@ public class IronFactory : Factory
     private Iron _ironResource;
     private bool isCreatingFinish = true;
     public float _speed;
+    private ResourceMover _resourceMover;
 
-    [ContextMenu("ADD IRON TO WAREHOUSE")]
+    private void Awake()
+    {
+        _resourceMover = new ResourceMover();
+    }
+
     public override void CreateResource()
     {
         var resourceCountInWareHouse = _manufacturedWareHouse._consumableResources.Count;
         var resourcesCopacity = _manufacturedWareHouse._storageСapacity;
-        //print(resourceCountInWareHouse);
-        isStoped  = resourceCountInWareHouse < resourcesCopacity;
-        if (isStoped && isCreatingFinish)
+        isWorking  = resourceCountInWareHouse < resourcesCopacity;
+        if (isWorking && isCreatingFinish)
         {
             StartCoroutine(MakeResourceCoroutine(timeToMake));
         }
@@ -38,30 +43,14 @@ public class IronFactory : Factory
         _ironResource = new Iron();
         _manufacturedWareHouse._consumableResources.Add(_ironResource);
         DisplayResourceAddin();
-        //print($"All works{_manufacturedWareHouse._consumableResources.Count}");
         isCreatingFinish = true;
     }
 
     private void DisplayResourceAddin()
     {
-        GameObject iron = Instantiate(_ironPrefab);
-        StartCoroutine(MoveResource(iron, _manufacturedWareHouse.transform.position, 1f));
+        GameObject iron = Instantiate(_ironPrefab,gameObject.transform);
+        StartCoroutine(_resourceMover.MoveResource(iron, _manufacturedWareHouse.gameObject.transform.position, _speed));
     }
 
-    private IEnumerator MoveResource(GameObject resource, Vector3 targetPosition, float duration)
-    {
-        Vector3 startPosition = gameObject.transform.position;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
-        {
-            float t = elapsedTime / duration;
-            resource.transform.position = Vector3.Lerp(startPosition, targetPosition, t);
-            elapsedTime += Time.deltaTime;
-            yield return null; 
-        }
-
-        resource.transform.position = targetPosition;
-        Destroy(resource);
-    }
+   
 }
