@@ -32,8 +32,12 @@ public class CopperFactory : Factory
         if (isWorking && isCreatingFinish)
         {
             StartCoroutine(MakeResourceCoroutine(timeToMake));
+            debugInfo = $"Factory is Working!!!";
         }
-        else print($"Factory stop working because WareHouse is filled!");
+        else if (resourceCountInWareHouse >= resourcesCopacity)
+            debugInfo = $"Factory stop working because WareHouse is filled!";
+        else 
+            debugInfo = $"Factory have no resource to creating!";   
     }
 
     private void Update()

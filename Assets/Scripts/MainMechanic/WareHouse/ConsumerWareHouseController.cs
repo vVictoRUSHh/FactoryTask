@@ -7,14 +7,14 @@ using UnityEngine;
 public class ConsumerWareHouseController : MonoBehaviour
 {
     public ConsumerWareHouse _consumerWareHouse;
-    private List<Iron> _ironList = new List<Iron>();
-    private List<Copper> _copperList = new List<Copper>();
+    public List<Iron> _ironList = new List<Iron>();
+    public List<Copper> _copperList = new List<Copper>();
     public BronzeFactory _bronzeFactory;
     public CopperFactory _copperFactory;
     public GameObject _ironPrefab;
     public GameObject _copperPrefab;
 
-    private ResourceMover _resourceMover;
+    private ResourceMover _resourceMover; 
     public float _speed;
 
     private void Awake()
@@ -83,7 +83,6 @@ public class ConsumerWareHouseController : MonoBehaviour
 
         Debug.LogWarning($"Count of iron in list: {_ironList.Count}");
     }
-
     private void DisplayResourceGiving(GameObject prefabToSpawn)
     {
         GameObject iron = Instantiate(prefabToSpawn, transform);
@@ -96,20 +95,8 @@ public class ConsumerWareHouseController : MonoBehaviour
         GameObject copper = Instantiate(secondPrefabToSpawn, transform);
         StartCoroutine(_resourceMover.MoveResource(copper, _bronzeFactory.transform.position, _speed));
     }
-    
-
     private void Update()
     {
         GivingResources();
-    }
-
-    private bool StateOfFactory(IConsumableResource resource)
-    {
-        return resource is Iron;
-    }
-
-    private bool StateOfFactory(IConsumableResource resource, IConsumableResource secondResource)
-    {
-        return resource is Iron;
     }
 }

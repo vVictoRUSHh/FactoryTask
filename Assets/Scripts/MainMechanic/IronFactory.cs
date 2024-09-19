@@ -13,7 +13,6 @@ public class IronFactory : Factory
     private bool isCreatingFinish = true;
     public float _speed;
     private ResourceMover _resourceMover;
-
     private void Awake()
     {
         _resourceMover = new ResourceMover();
@@ -27,8 +26,13 @@ public class IronFactory : Factory
         if (isWorking && isCreatingFinish)
         {
             StartCoroutine(MakeResourceCoroutine(timeToMake));
+            debugInfo = $"Factory is Working!!!";
         }
-        else print($"Factory stop working because WareHouse is filled!");
+        else 
+        {
+            debugInfo = $"Factory stop working because WareHouse is filled!";
+        }
+       
     }
 
     private void Update()
