@@ -21,17 +21,6 @@ public class Inventory : MonoBehaviour
       _resourcesInInventory = new List<IConsumableResource>();
       _counterOfDistance = new CounterResourceDistance();
    }
-
-   
-   [ContextMenu("See inside!")]
-   private void SeeInside()
-   {
-      foreach (var item in _resourcesInInventory)
-      {
-         Debug.LogError($"Item{item.GetType()}");
-      }
-   }
-
    private IEnumerator TakingResourcesFromWareHouse(ManufacturedWareHouse manufacturedWareHouse, int index)
    {
       isTakingResourcesFinished = false;

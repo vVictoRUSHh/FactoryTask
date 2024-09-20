@@ -19,7 +19,7 @@ public class Move : MonoBehaviour, IMovable
             if (forwardDirection != Vector3.zero)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(forwardDirection);
-                _rb.rotation = Quaternion.Slerp(_rb.rotation, targetRotation, Time.deltaTime * 10f); // 10f - скорость поворота
+                _rb.rotation = Quaternion.Slerp(_rb.rotation, targetRotation, Time.deltaTime * 10f);
             }
         }
     }

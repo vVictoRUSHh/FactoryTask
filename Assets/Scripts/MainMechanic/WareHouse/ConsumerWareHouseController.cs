@@ -60,7 +60,6 @@ public class ConsumerWareHouseController : MonoBehaviour
             
             if (lastItemIron >= 0 && lastItemCopper >= 0)
             {
-                Debug.LogError($"Giving resource to CopperFactory!");
                 _bronzeFactory._ironList.Add(_ironList[lastItemIron]);
                 _ironList.RemoveAt(lastItemIron);
                 _bronzeFactory._copperList.Add(_copperList[lastItemCopper]);
@@ -74,14 +73,12 @@ public class ConsumerWareHouseController : MonoBehaviour
 
             if (lastItem >= 0)
             {
-                Debug.LogError($"Giving resource to CopperFactory!");
                 _copperFactory._ironList.Add(_ironList[lastItem]);
                 _ironList.RemoveAt(lastItem);
                 DisplayResourceGiving(_ironPrefab);
             }
         }
 
-        Debug.LogWarning($"Count of iron in list: {_ironList.Count}");
     }
     private void DisplayResourceGiving(GameObject prefabToSpawn)
     {

@@ -2,6 +2,5 @@
 {
     public interface INonConsumableResource
     {
-        public void ShowLerp();
     }
 }

@@ -44,7 +44,6 @@ namespace MainMechanic.WareHouse
                 int lastItem = inventory._resourcesInInventory.Count - 1;
                 if (isHaveEnoughSpace && isTakingResourcesFinished)
                 {
-                    Debug.LogWarning($"I work i take");
                     StartCoroutine(TakingResourcesFromPlayer(inventory, lastItem));
                 }
                 else if (!isHaveEnoughSpace) print($"WareHouse is full!");

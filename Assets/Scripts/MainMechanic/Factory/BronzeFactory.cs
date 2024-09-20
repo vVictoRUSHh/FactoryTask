@@ -60,6 +60,5 @@ public class BronzeFactory : Factory
     {
         GameObject bronze = Instantiate(_bronzePrefab,gameObject.transform.position,quaternion.identity);
         StartCoroutine(_resourceMover.MoveResource(bronze, _manufacturedWareHouse.gameObject.transform.position, _speed));
-        Debug.LogError($"im working!");
     }
 }
